@@ -1,5 +1,0 @@
-##AH:UseTextMode
-module test-module
-{
-    Log-Information `$ExecutionId = $ExecutionId;
-}
