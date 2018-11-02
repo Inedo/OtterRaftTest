@@ -1,0 +1,4 @@
+Ensure-Directory C:\Users\LicensedBuilder\AppData\Local\NuGet\Cache
+(
+    Exists: False
+);

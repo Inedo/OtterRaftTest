@@ -1,0 +1,18 @@
+Ensure-File "C:\Program Files (x86)\NuGet\Config\sources.config"
+(
+    Text: >><?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <packageSources>
+    <add key="ProGet" value="http://proget/nuget/Default/" />
+  </packageSources>
+</configuration>
+>>
+);
+
+Ensure-Asset
+(
+    Name: git-last-modified.exe,
+    Raft: Default,
+    Type: File,
+    Directory: C:\Program Files\Git\mingw64\libexec\git-core
+);

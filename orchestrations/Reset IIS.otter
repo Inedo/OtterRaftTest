@@ -1,0 +1,6 @@
+##AH:UseTextMode
+
+Exec
+(
+    FileName: C:\Windows\system32\iisreset.exe
+);
