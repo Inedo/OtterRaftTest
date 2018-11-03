@@ -1,6 +1,7 @@
 IIS::Ensure-AppPool $AccountsAppPoolName
 (
     Runtime: v4.0,
+    Pipeline: Classic,
     State: Started
 );
 
