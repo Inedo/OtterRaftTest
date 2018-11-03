@@ -1,1 +1,12 @@
-Log-Warning test2;
+IIS::Ensure-AppPool $AccountsAppPoolName
+(
+    Runtime: v4.0,
+    State: Started
+);
+
+IIS::Ensure-Site Accounts
+(
+    AppPool: $AccountsAppPoolName,
+    Path: C:\Websites\$EnvironmentName\Accounts,
+    Bindings: %(IPAddress: *, Port: $AccountsWebsitePort)
+);
