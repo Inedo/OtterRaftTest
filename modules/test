@@ -1,3 +1,4 @@
 module test
 {
+    InedoCore::Sleep 10;
 }
