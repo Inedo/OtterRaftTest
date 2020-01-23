@@ -1,0 +1,52 @@
+##AH:UseTextMode
+
+
+# Get Source
+# Checkout latest code from Inedo's ProfitCalc repository and capture CommitId as a build variable
+{
+    GitHub::Get-Source
+    (
+        From: GitHub,
+        DiskPath: ~\Source,
+        Branch: $Branch,
+        CommitHash => $commit
+    );
+
+    Set-BuildVariable CommitId
+    (
+        Value: $commit
+    );
+}
+
+# Compile Project
+# Set assembly versions to curent BuildMaster build/release numbers and run  MSBuild
+{
+    Write-AssemblyVersion
+    (
+        FromDirectory: ~\Source
+    );
+
+    MSBuild::Build-Project ~\Source\ProfitCalc.Console\ProfitCalc.Console.csproj
+    (
+        To: ~\App
+    );
+
+    # On some servers/computers, the MSBuild operation will warn if you don't have the right tools installed. This normally might be a problem, but this is just a sample/tutorial so it's not so important.
+    force normal;
+}
+
+# Run Tests
+# Execute and record (fake) unit tests
+{
+    Mocks::Execute-UnitTests();
+}
+
+# Capture Artifact
+# Create a build artifact from the build output once all tests pass.
+{
+    Create-Artifact $ApplicationName
+    (
+        From: ~\App,
+        Overwrite: true
+    );
+}
