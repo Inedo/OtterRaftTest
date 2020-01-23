@@ -30,15 +30,6 @@
     (
         To: ~\App
     );
-
-    # On some servers/computers, the MSBuild operation will warn if you don't have the right tools installed. This normally might be a problem, but this is just a sample/tutorial so it's not so important.
-    force normal;
-}
-
-# Run Tests
-# Execute and record (fake) unit tests
-{
-    Mocks::Execute-UnitTests();
 }
 
 # Capture Artifact
@@ -48,5 +39,12 @@
     (
         From: ~\App,
         Overwrite: true
+    );
+
+    Send-Email 
+    (
+        To: @(contractor@external.example.org),
+        Subject: Build $BuildNumber created,
+        Text: >>A new build was created for commit $commit. This email was sent from BuildMaster on $Date.>>
     );
 }
