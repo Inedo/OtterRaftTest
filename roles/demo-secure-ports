@@ -1,0 +1,59 @@
+Firewall::Ensure-NetFirewallRule
+(
+    Name: HTTP,
+    Profiles: Domain,
+    Port: 80,
+    Protocol: TCP,
+    Inbound: true,
+    Allow: true
+);
+
+Firewall::Ensure-NetFirewallRule
+(
+    Name: FTP,
+    Profiles: Domain,
+    Port: 21,
+    Protocol: TCP,
+    Inbound: true,
+    Allow: false
+);
+
+Firewall::Ensure-NetFirewallRule
+(
+    Name: SMTP,
+    Profiles: Domain,
+    Port: 25,
+    Protocol: TCP,
+    Inbound: true,
+    Allow: false
+);
+
+Firewall::Ensure-NetFirewallRule
+(
+    Name: HTTPS,
+    Profiles: Domain,
+    Port: 443,
+    Protocol: TCP,
+    Inbound: true,
+    Allow: true
+);
+
+Firewall::Ensure-NetFirewallRule
+(
+    Name: FTPS,
+    Profiles: Domain,
+    Port: 990,
+    Protocol: TCP,
+    Inbound: true,
+    Allow: true
+);
+
+Firewall::Ensure-NetFirewallRule
+(
+    Name: SMTPS,
+    Profiles: Domain,
+    Port: 587,
+    Protocol: TCP,
+    Inbound: true,
+    Allow: true
+);

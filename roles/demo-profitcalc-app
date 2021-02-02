@@ -1,0 +1,15 @@
+# ProfitCalc App Demo Config
+{
+    IIS::Ensure-AppPool ProfitCalcAppPool
+    (
+        Enable32BitAppOnWin64: true,
+        Pipeline: Integrated
+    );
+
+    IIS::Ensure-Site AccountsWeb
+    (
+        AppPool: ProfitCalcAppPool,
+        Path: c:\WebApps\AccountsWeb,
+        Bindings: @(%(IPAddress: 192.0.2.100, Port: 80, HostName: accountsweb.local, Protocol: http))
+    );
+}
