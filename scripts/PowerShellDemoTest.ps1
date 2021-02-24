@@ -51,3 +51,4 @@ if ($EnableCuteMode) {
 Write-Host Demo script finished!
 
 Write-Output "`n$('=' * 100)`n== / Otter Demo script`n$('=' * 100)"
+Write-Outpu "Rich did this"
