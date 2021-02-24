@@ -1,3 +1,4 @@
 module TestModule
 {
+    Log-Debug Test;
 }
