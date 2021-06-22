@@ -1,0 +1,70 @@
+##AH:UseTextMode
+
+# Log Information
+{
+    
+    Log-Information >>
+    
+Hello from OtterScript!
+
+Otter can also run OtterScripts against the servers you target, and like the PowerShellDemo script
+this OtterScript doesn't really do that much.
+
+So what's the difference between PowerShell and OtterScript?
+
+Think of OtterScript as the language that "sits on top" of PowerShell, and can be used to decide which
+scripts to run, and on which server. There's some functional overlap, but you'll get the hang of which
+language to use, and when.
+
+The first thing you'll notice about OtterScript is that it can be visually programmed! Go ahead and
+try out the [Switch to Visual Mode] button if you haven't already.
+
+    >>;
+
+    Sleep 3;
+}
+
+Sleep 30;
+
+# Show off PSExec
+# You can use PSexec to directly run powershell commands. Not how we are specifying the server here, in OtterScript
+for server localhost 
+{
+    PSExec >>
+       Write-Output Hello from PowerShell, from OtterScript!
+       Write-Output This could be any PowerShell
+    >>;
+}
+
+# Use a variable to specify the server name instead
+set $ServerToUse = localhost;
+
+# Show off PowerDemo
+# Runs the PowerDemo Script in a few different modes
+for server $ServerToUse
+{
+    # Default (No Params)
+    {
+        PSCall PowerShellDemo;
+    }
+
+    # Setting a variable isn't needed, but it's how you can use it
+    set $MyName = Ridley the Otter;
+
+    # Name Only
+    {
+        PSCall PowerShellDemo
+        (
+            YourName: $MyName
+        );
+    }
+
+    # Cute ModeEnabled
+    {
+        PSCall PowerShellDemo
+        (
+            YourName: $MyName,
+            EnableCuteMode: True
+        );
+    }
+}
