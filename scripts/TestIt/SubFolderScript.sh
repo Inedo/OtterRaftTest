@@ -1,1 +1,1 @@
-test
+test rich string 3
