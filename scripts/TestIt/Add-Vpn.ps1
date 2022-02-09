@@ -1,0 +1,1 @@
+Add-VpnConnection -Name 'Inedo VPN' -ServerAddress '56.inedo.com' -AllUserConnection $true -SplitTunneling $true -TunnelType Automatic -EncryptionLevel Optional -AuthenticationMethod Eap -L2tpPsk 'Certificate'
