@@ -1,4 +1,3 @@
-##AH:UseVisualMode
-
-
+# AhParameter: my_stuff
+# AhParameter: pword (sensitive)
 Log-Information more stuuf;
