@@ -1,5 +1,5 @@
 ##AH:Parameter my_stuff
-##AH:Parameter pword (sensitive)
+##AH:Parameter pword (input,sensitive)
 
 
 Log-Information more stuuf;
