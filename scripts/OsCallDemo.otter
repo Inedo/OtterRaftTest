@@ -1,3 +1,5 @@
-# Parameter: my_stuff
-# Parameter: pword (sensitive)
+##AH:Parameter: my_stuff
+##AH:Parameter: pword (sensitive)
+
+
 Log-Information more stuuf;
